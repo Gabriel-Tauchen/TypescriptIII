@@ -120,22 +120,74 @@ class Aluno extends Pessoa{
 //Herança de classe abstrata torna subclasse abstrata
 //Para subclasse tornar-se instanciável deve implementar métodos abstratos herdados
 
-abstract class Poligono{
-    constructor(public x:number=0,
-    public y:number=0){}
-    public abstract area(): number;
-}
+// abstract class Poligono{
+//     constructor(public x:number=0,
+//     public y:number=0){}
+//     public abstract area(): number;
+// }
 
-class Quadrado extends Poligono{
-    constructor(x: number=0,
-    y: number=0,
-    public lado:number=0){
-        super(x,y);
+// class Quadrado extends Poligono{
+//     constructor(x: number=0,
+//     y: number=0,
+//     public lado:number=0){
+//         super(x,y);
+//     }
+//     public area(): number{
+//     return this.lado*this.lado}
+// }
+
+// //let p : Poligono = new Poligono();//error
+// let r2 : Quadrado = new Quadrado(0,0,2);
+// console.log(r2.area());
+
+
+
+//INTERFACE
+
+//Uma interface define a estrutura de um objeto (ou classe)
+//Define quais propriedades e métodos deve ter, sem implementar nada
+//Usada para tipar objetos
+
+//Interface - Classe
+
+// interface Mamifero{
+//     voa: boolean;
+//     emitirSom(): void;  
+// }
+
+// interface Peixe{
+//     respira: boolean;
+//     nadar(): void;  
+// }
+
+// class Baleia implements Mamifero, Peixe{
+//     voa: boolean = false;
+//     respira: boolean = true;
+//     emitirSom(): void {
+//         return console.log("UUUUUUUUUHHHHHHHHAAAAAAAAA");
+//     }
+//     nadar(): void {
+//         console.log("splash splash");
+//     }
+// }
+
+// let b: Baleia = new Baleia();
+// b.emitirSom();
+// b.nadar();
+
+
+//Interface - Objeto
+
+interface Animal {
+    nome: string;
+    emitirSom(): void;
+}
+const cachorro: Animal = {
+    nome: "Pluto",
+    emitirSom() {
+        console.log(`${this.nome} diz: Au au`);
     }
-    public area(): number{
-    return this.lado*this.lado}
-}
+};
 
-//let p : Poligono = new Poligono();//error
-let r2 : Quadrado = new Quadrado(0,0,2);
-console.log(r2.area());
+console.log("Objeto:", cachorro);
+cachorro.emitirSom();
