@@ -58,28 +58,63 @@ class Aluno extends Pessoa {
 // lista.forEach((r) => console.log(r));
 //Sobreposição de implementação
 //Subclasse pode sobrepor com novas implementações as operações herdadas
-class Relevo {
-    constructor(nome) {
-        this.nome = nome;
+// class Relevo{
+//     constructor(public nome: String){}
+//     public temperatura():void{console.log("moderada");}
+// }
+// class Montanha extends Relevo{
+//     public altura:bigint=0n;
+//     constructor(nome:String){super(nome)}
+// }
+// class Planicie extends Relevo{
+//     public temLago: boolean=false;
+//     constructor(nome:String){super(nome)}
+//     public temperatura():void{ console.log("quente");}
+// }
+// let m : Montanha = new Montanha("Everest");
+// m.temperatura(); //frio
+// let p: Planicie = new Planicie("Planalto Central");
+// p.temperatura()
+// let r: Relevo = new Relevo("Acidentado");
+// r.temperatura();
+//ABSTRATA
+// abstract class Poligono{
+//     constructor(public x:number=0,
+//     public y:number=0){} 
+// }
+// class Quadrado extends Poligono{
+//     constructor(x:number=0,y:number=0,
+//     public lado:number=0){
+//     super(x,y);}
+// }
+//     class Triangulo extends Poligono{
+//     constructor(x: number=0, y: number=0,
+//     public base:number=0,
+//     public altura:number=0){
+//     super(x, y);}
+// }
+//     //let p : Poligono = new Poligono();//error
+//     let r1 : Quadrado = new Quadrado();
+//     let r2 : Quadrado = new Quadrado(0,0,2);
+//Metodo Abstrato
+//Método abstrato torna a classe abstrata
+//Herança de classe abstrata torna subclasse abstrata
+//Para subclasse tornar-se instanciável deve implementar métodos abstratos herdados
+class Poligono {
+    constructor(x = 0, y = 0) {
+        this.x = x;
+        this.y = y;
     }
-    temperatura() { console.log("moderada"); }
 }
-class Montanha extends Relevo {
-    constructor(nome) {
-        super(nome);
-        this.altura = 0n;
+class Quadrado extends Poligono {
+    constructor(x = 0, y = 0, lado = 0) {
+        super(x, y);
+        this.lado = lado;
+    }
+    area() {
+        return this.lado * this.lado;
     }
 }
-class Planicie extends Relevo {
-    constructor(nome) {
-        super(nome);
-        this.temLago = false;
-    }
-    temperatura() { console.log("quente"); }
-}
-let m = new Montanha("Everest");
-m.temperatura(); //frio
-let p = new Planicie("Planalto Central");
-p.temperatura();
-let r = new Relevo("Acidentado");
-r.temperatura();
+//let p : Poligono = new Poligono();//error
+let r2 = new Quadrado(0, 0, 2);
+console.log(r2.area());
